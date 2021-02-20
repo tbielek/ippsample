@@ -81,7 +81,8 @@ _cups_vsnprintf(char       *buffer,	/* O - Output buffer */
 	format ++;
 	width = va_arg(ap, int);
 
-	snprintf(tptr, sizeof(tformat) - (tptr - tformat), "%d", width);
+	//snprintf(tptr, sizeof(tformat) - (tptr - tformat), "%d", width);
+	sprintf(tptr, "%d", width);
 	tptr += strlen(tptr);
       }
       else
@@ -113,7 +114,8 @@ _cups_vsnprintf(char       *buffer,	/* O - Output buffer */
 	  format ++;
 	  prec = va_arg(ap, int);
 
-	  snprintf(tptr, sizeof(tformat) - (tptr - tformat), "%d", prec);
+	  //snprintf(tptr, sizeof(tformat) - (tptr - tformat), "%d", prec);
+	  sprintf(tptr, "%d", prec);
 	  tptr += strlen(tptr);
 	}
 	else
@@ -171,7 +173,8 @@ _cups_vsnprintf(char       *buffer,	/* O - Output buffer */
 	    if ((width + 2) > sizeof(temp))
 	      break;
 
-	    snprintf(temp, sizeof(temp), tformat, va_arg(ap, double));
+	    //snprintf(temp, sizeof(temp), tformat, va_arg(ap, double));
+		sprintf(temp, tformat, va_arg(ap, double));
 	    templen = strlen(temp);
 
             bytes += (int)templen;
@@ -202,7 +205,8 @@ _cups_vsnprintf(char       *buffer,	/* O - Output buffer */
 	    if ((width + 2) > sizeof(temp))
 	      break;
 
-	    snprintf(temp, sizeof(temp), tformat, va_arg(ap, int));
+	    //snprintf(temp, sizeof(temp), tformat, va_arg(ap, int));
+		sprintf(temp, tformat, va_arg(ap, int));
 	    templen = strlen(temp);
 
             bytes += (int)templen;
@@ -226,7 +230,8 @@ _cups_vsnprintf(char       *buffer,	/* O - Output buffer */
 	    if ((width + 2) > sizeof(temp))
 	      break;
 
-	    snprintf(temp, sizeof(temp), tformat, va_arg(ap, void *));
+	    //snprintf(temp, sizeof(temp), tformat, va_arg(ap, void *));
+		sprintf(temp, tformat, va_arg(ap, void*));
 	    templen = strlen(temp);
 
             bytes += (int)templen;
